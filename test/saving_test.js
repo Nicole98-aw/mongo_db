@@ -12,8 +12,8 @@ describe("Saving records", function() {
     });
 
     char.save().then(function() {
-      assert(char.isNew === false);
-      done();
+      assert(char.isNew === false); //to assertain that this character has been saved to the db we use .isNew property and set it to false
+      done(); //mocha needs to know when the test is completed
     });
   });
 });

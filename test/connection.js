@@ -16,3 +16,11 @@ before(function(done) {
       console.log("Connetion error:", error);
     });
 });
+
+//Drop the characters collection before each test
+beforeEach(function() {
+  //Drop the collection
+  mongoose.connection.collections.nickychars.drop(function() {
+    done();
+  });
+});
