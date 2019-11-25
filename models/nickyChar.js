@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 //create Schema and Model
 const NickyCharSchema = new Schema({
