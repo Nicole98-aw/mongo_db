@@ -4,8 +4,10 @@ const NickyChar = require("../models/nickyChar");
 
 //Describe tests Telling mocha what our tests are about
 describe("Finding records", function() {
+  var char;
+
   beforeEach(function(done) {
-    var char = new NickyChar({
+    char = new NickyChar({
       name: "Nicky"
     });
 
@@ -16,9 +18,16 @@ describe("Finding records", function() {
   });
   //Create tests
   //Each it block desribes a single test
-  it("Finds one record fron the database", function(done) {
+  it("Finds one record by ID fron the database", function(done) {
     NickyChar.findOne({ name: "Nicky" }).then(function(res) {
       assert(res.name === "Nicky");
+      done();
+    });
+  });
+
+  it("Finds one record fron the database", function(done) {
+    NickyChar.findOne({ _id: char._id }).then(function(res) {
+      assert(res._id.toString() === char._id.toString());
       done();
     });
   });
